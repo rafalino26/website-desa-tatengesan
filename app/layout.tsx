@@ -1,34 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Website Resmi Desa Tatengesan",
-  description: "Portal informasi resmi Desa Tatengesan.",
+  description: "Portal informasi resmi Pemerintah Desa Tatengesan.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="id">
+      <body className="antialiased">
+        <Navbar />
+        <main className="min-h-[calc(100vh-200px)] bg-white text-slate-900 px-4 pt-6 md:px-6 md:pt-8">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
 }
+
