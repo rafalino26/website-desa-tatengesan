@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Profil Desa", href: "/profil" },
-  { label: "Penduduk", href: "/penduduk" },
+  { label: "Potensi Desa", href: "/potensi" },
   { label: "APBDes", href: "/apbdes" },
   { label: "Berita", href: "/berita" },
   { label: "Tentang", href: "/Tentang" },
