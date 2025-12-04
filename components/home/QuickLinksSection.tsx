@@ -55,7 +55,7 @@ function QuickLinkCard({ item }: { item: QuickLinkItem }) {
   return (
     <Link
       href={item.href}
-      className="group flex min-h-[180px] flex-col gap-3 rounded-2xl 
+      className="mt-10 group flex min-h-[180px] flex-col gap-3 rounded-2xl 
       border border-slate-200 bg-white p-5 transition 
       hover:-translate-y-0.5 hover:border-transparent 
       hover:bg-linear-to-br hover:from-[#e53935] hover:via-[#f9683a] hover:to-[#f4511e]"
@@ -69,7 +69,7 @@ function QuickLinkCard({ item }: { item: QuickLinkItem }) {
         </div>
 
         <div>
-          <h3 className="text-xl font-bold text-slate-900 transition group-hover:text-white">
+          <h3 className="text-3xl font-bold text-slate-900 transition group-hover:text-white">
             {item.label}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 transition group-hover:text-white/90">

@@ -29,7 +29,7 @@ export default function KadesSection() {
         </div>
 
         {/* Teks Sambutan */}
-        <article>
+        <article className="text-center md:text-left">
           <h3 className="text-3xl font-bold text-[#c20000] md:text-4xl">
             Sambutan Kepala Desa
           </h3>
