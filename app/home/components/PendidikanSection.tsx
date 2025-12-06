@@ -1,6 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
-import { PENDIDIKAN_LIST } from "./data/home";
+import { PENDIDIKAN_LIST } from "../data/home";
 
 export default function PendidikanSection() {
   return (
@@ -39,43 +38,7 @@ export default function PendidikanSection() {
         </div>
 
 
-          {/* Tombol lihat data selengkapnya – style sama APBDes */}
-          <div className="mt-8 flex justify-center md:justify-end">
-            <Link
-              href="/pendidikan"
-              className="
-                group inline-flex items-center gap-2
-                text-xl font-bold text-slate-900
-                transition-all duration-200
-                hover:-translate-y-0.5 hover:text-[#7B0000]
-              "
-            >
-              <span className="relative">
-                <span className="relative z-10 tracking-wide">
-                  LIHAT DATA PENDIDIKAN LEBIH LENGKAP
-                </span>
-                <span
-                  className="
-                    absolute inset-x-0 -bottom-1 h-0.5
-                    origin-left scale-x-0 bg-[#7B0000]
-                    transition-transform duration-200
-                    group-hover:scale-x-100
-                  "
-                />
-              </span>
-
-              <span
-                aria-hidden
-                className="
-                  text-3xl leading-none
-                  transition-transform duration-200
-                  group-hover:translate-x-1
-                "
-              >
-                ›
-              </span>
-            </Link>
-          </div>
+          
         </div>
       </div>
     </section>

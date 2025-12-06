@@ -1,4 +1,4 @@
-import { GALERI_DESA } from "./data/home";
+import { GALERI_DESA } from "../data/home";
 import Image from "next/image";
 import Link from "next/link";
 

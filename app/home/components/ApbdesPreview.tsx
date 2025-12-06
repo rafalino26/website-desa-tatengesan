@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { APBDES_PREVIEW } from "./data/home";
+import { APBDES_PREVIEW } from "../data/home";
 import { AnimatedNumber } from "./AnimatedNumber";
 
 const parseRupiah = (str: string) =>

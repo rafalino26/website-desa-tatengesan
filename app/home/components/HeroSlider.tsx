@@ -23,15 +23,16 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    // Mobile: normal (ikut padding main), Desktop: full bleed (-mx / -mt)
-    <section className="mt-0 md:-mx-6 md:-mt-8">
+    // ⬇⬇⬇ wrapper SECTION barunya di sini ⬇⬇⬇
+  <section className="mb-10 md:mb-16">
       <div
-        className="
-          relative w-full overflow-hidden bg-slate-200
-          h-56 rounded-xl shadow-md
-          md:h-screen
- md:min-h-[600px] md:rounded-none
-        "
+         className="
+      relative w-full overflow-hidden bg-slate-200
+      h-56 shadow-md rounded-xl
+      md:h-screen
+ md:min-h-[600px]
+      md:shadow-none md:rounded-none
+    "
       >
         {slides.map((slide, index) => (
           <div
@@ -47,6 +48,7 @@ export default function HeroSlider() {
               priority={index === 0}
               className="object-cover"
             />
+
             {/* overlay gelap supaya teks kebaca */}
             <div className="absolute inset-0 bg-black/40" />
           </div>

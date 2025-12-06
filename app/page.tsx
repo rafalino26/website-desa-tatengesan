@@ -1,20 +1,25 @@
-import HeroSlider from "@/components/home/HeroSlider";
-import KadesSection from "@/components/home/KadesSection";
-import QuickLinksSection from "@/components/home/QuickLinksSection";
-import MapSection from "@/components/home/MapSection";
-import StrukturPreview from "@/components/home/StrukturPreview";
-import PendudukPreview from "@/components/home/PendudukPreview";
-import ApbdesPreview from "@/components/home/ApbdesPreview";
-import PendidikanSection from "@/components/home/PendidikanSection";
-import RumahIbadahSection from "@/components/home/RumahIbadahSection";
-import GaleriPreview from "@/components/home/GaleriPreview";
+// app/page.tsx
+import HeroSlider from "@/app/home/components/HeroSlider";
+import KadesSection from "@/app/home/components/KadesSection";
+import QuickLinksSection from "@/app/home/components/QuickLinksSection";
+import MapSection from "@/app/home/components/MapSection";
+import StrukturPreview from "@/app/home/components/StrukturPreview";
+import PendudukPreview from "@/app/home/components/PendudukPreview";
+import ApbdesPreview from "@/app/home/components/ApbdesPreview";
+import PendidikanSection from "@/app/home/components/PendidikanSection";
+import RumahIbadahSection from "@/app/home/components/RumahIbadahSection";
+import GaleriPreview from "@/app/home/components/GaleriPreview";
 
 export default function HomePage() {
   return (
-    <div className="space-y-16 md:space-y-28">
-      <HeroSlider />
+     <div className="space-y-20 md:space-y-28">
+      {/* Hero: ada padding di mobile, full-bleed di desktop */}
+      <div className="py-4 md:py-0 px-4 md:px-0">
+        <HeroSlider />
+      </div>
+
       <KadesSection />
-      <QuickLinksSection  />
+      <QuickLinksSection />
       <MapSection />
       <StrukturPreview />
       <PendudukPreview />

@@ -1,6 +1,6 @@
 "use client";
 
-import { STRUKTUR_DESA } from "../home/data/home";
+import { STRUKTUR_DESA } from "../data/home";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -65,7 +65,7 @@ export default function StrukturPreview() {
     overflow-hidden rounded-2xl border border-slate-200 bg-white
   "
 >
-  <div className="relative h-72 w-full bg-slate-200 sm:h-80">
+  <div className="relative h-60 w-full bg-slate-200 sm:h-80">
     <Image
       src={p.foto}
       alt={p.nama}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PENDUDUK_STATS } from "./data/home";
+import { PENDUDUK_STATS } from "../data/home";
 import { AnimatedNumber } from "./AnimatedNumber";
 
 export default function PendudukPreview() {
