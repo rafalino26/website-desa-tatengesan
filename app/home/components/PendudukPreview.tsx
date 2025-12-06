@@ -89,7 +89,7 @@ export default function PendudukPreview() {
       {/* Lihat data selengkapnya */}
       <div className="flex justify-end">
         <Link
-          href="/statistik"
+          href="/profil#data-penduduk"
           className="
             mt-6 group inline-flex items-center gap-2
             text-xl font-bold text-slate-900

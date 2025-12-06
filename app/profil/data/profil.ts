@@ -51,3 +51,39 @@ export const PROFIL_LOKASI = {
     keterangan: "± 3,45 km² wilayah administratif Desa Tatengesan.",
   },
 };
+
+
+export const PENDUDUK_BY_JAGA = [
+  { name: "Jaga I", value: 137 },
+  { name: "Jaga II", value: 161 },
+  { name: "Jaga III", value: 139 },
+  { name: "Jaga IV", value: 202 },
+];
+
+// Pie chart: penduduk berdasarkan profesi utama
+export const PENDUDUK_BY_PROFESI = [
+  { name: "Petani", value: 220 },
+  { name: "Nelayan", value: 40 },
+  { name: "Pedagang", value: 35 },
+  { name: "PNS/Guru", value: 25 },
+  { name: "Lainnya", value: 20 },
+];
+
+// Bar chart: penduduk berdasarkan kelompok umur
+export const PENDUDUK_BY_UMUR = [
+  { range: "0–14", value: 110 },
+  { range: "15–24", value: 80 },
+  { range: "25–44", value: 140 },
+  { range: "45–59", value: 90 },
+  { range: "60+", value: 35 },
+];
+
+// Bar chart: penduduk berdasarkan agama
+export const PENDUDUK_BY_AGAMA = [
+  { name: "Islam", value: 120 },
+  { name: "Kristen Protestan", value: 280 },
+  { name: "Katolik", value: 60 },
+  { name: "Hindu", value: 5 },
+  { name: "Buddha", value: 3 },
+  { name: "Konghucu", value: 2 },
+];

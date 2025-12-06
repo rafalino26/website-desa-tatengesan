@@ -60,12 +60,12 @@ export const PENDUDUK_STATS = [
   },
   {
     label: "Penduduk",
-    value: 290,
+    value: 639,
     icon: "/penduduk.png",
   },
   {
     label: "Perempuan",
-    value: 312,
+    value: 290,
     icon: "/wanita.png",
   },
   {
@@ -80,7 +80,7 @@ export const PENDUDUK_STATS = [
   },
   {
     label: "Mutasi Penduduk",
-    value: 5,
+    value: 1,
     icon: "/mutasipenduduk.png",
   },
 ];
