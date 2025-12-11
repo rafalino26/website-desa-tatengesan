@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import type { LucideIcon } from "lucide-react";
 
-// icons (semua ini PASTI ada di lucide-react)
+// icons (pastikan semua ada di lucide-react)
 import {
   Flame,
   Sparkles,
@@ -31,28 +32,55 @@ export default function PotensiPage() {
   return (
     <main className="min-h-screen bg-slate-50 pb-12">
       <div className="container mx-auto px-4 pt-6 sm:px-6 lg:px-8 space-y-10">
-        {/* Tabs */}
-        <div className="flex justify-center border-b border-slate-200 pb-2">
-          <div className="flex flex-wrap gap-2 sm:gap-4">
-            <TabButton
-              label="Potensi Pertanian"
-              active={activeTab === "pertanian"}
-              onClick={() => setActiveTab("pertanian")}
-            />
-            <TabButton
-              label="Potensi Peternakan"
-              active={activeTab === "peternakan"}
-              onClick={() => setActiveTab("peternakan")}
-            />
-            <TabButton
-              label="Potensi Wisata"
-              active={activeTab === "wisata"}
-              onClick={() => setActiveTab("wisata")}
-            />
+        {/* ====== TABS AREA ====== */}
+        <div className="space-y-3">
+          {/* MOBILE: icon grid */}
+          <div className="md:hidden flex justify-center">
+            <div className="grid grid-cols-3 gap-3">
+              <MobileTabIconButton
+                label="Pertanian"
+                icon={Leaf}
+                active={activeTab === "pertanian"}
+                onClick={() => setActiveTab("pertanian")}
+              />
+              <MobileTabIconButton
+                label="Peternakan"
+                icon={Drumstick}
+                active={activeTab === "peternakan"}
+                onClick={() => setActiveTab("peternakan")}
+              />
+              <MobileTabIconButton
+                label="Wisata"
+                icon={Mountain}
+                active={activeTab === "wisata"}
+                onClick={() => setActiveTab("wisata")}
+              />
+            </div>
+          </div>
+
+          {/* DESKTOP: text tabs */}
+          <div className="hidden md:flex justify-center border-b border-slate-200 pb-2">
+            <div className="flex flex-wrap gap-2 sm:gap-4">
+              <TabButton
+                label="Potensi Pertanian"
+                active={activeTab === "pertanian"}
+                onClick={() => setActiveTab("pertanian")}
+              />
+              <TabButton
+                label="Potensi Peternakan"
+                active={activeTab === "peternakan"}
+                onClick={() => setActiveTab("peternakan")}
+              />
+              <TabButton
+                label="Potensi Wisata"
+                active={activeTab === "wisata"}
+                onClick={() => setActiveTab("wisata")}
+              />
+            </div>
           </div>
         </div>
 
-        {/* Content */}
+        {/* ====== CONTENT ====== */}
         {activeTab === "pertanian" && <PertanianSection />}
         {activeTab === "peternakan" && <PeternakanSection />}
         {activeTab === "wisata" && <WisataSection />}
@@ -62,7 +90,7 @@ export default function PotensiPage() {
 }
 
 /* ===========================
-      TAB BUTTON
+   TAB BUTTON (DESKTOP)
    =========================== */
 
 function TabButton({
@@ -85,6 +113,43 @@ function TabButton({
         }`}
     >
       {label}
+    </button>
+  );
+}
+
+/* ===========================
+   TAB ICON (MOBILE)
+   =========================== */
+
+function MobileTabIconButton({
+  label,
+  icon: Icon,
+  active,
+  onClick,
+}: {
+  label: string;
+  icon: LucideIcon;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`
+        flex flex-col items-center gap-2 rounded-xl px-1.5 py-1.5 text-xs font-medium
+        transition-all duration-200
+        ${
+          active
+            ? "bg-[#7B0000] text-white shadow-md shadow-[#7B0000]/40"
+            : "bg-[#7B0000]/90 text-white/80 hover:bg-[#7B0000] hover:text-white"
+        }
+      `}
+    >
+      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10">
+        <Icon className="h-5 w-5" />
+      </div>
+      <span className="leading-tight text-[8px]">{label}</span>
     </button>
   );
 }
@@ -177,7 +242,7 @@ function PertanianSection() {
    =========================== */
 
 const peternakanIconMap = {
-  sapi: Drumstick, // ikon pasti ada
+  sapi: Drumstick,
   ayam: Egg,
   lainnya: Leaf,
 } as const;
@@ -185,11 +250,13 @@ const peternakanIconMap = {
 function PeternakanSection() {
   return (
     <section className="space-y-8">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Potensi Peternakan</h1>
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+        Potensi Peternakan
+      </h1>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {PETERNAKAN_ITEMS.map((item) => {
-          const Icon = peternakanIconMap[item.icon] ?? Leaf; // fallback aman
+          const Icon = peternakanIconMap[item.icon] ?? Leaf;
 
           return (
             <div
@@ -230,23 +297,27 @@ function WisataSection() {
       <div className="rounded-3xl bg-white shadow-sm ring-1 ring-slate-100 overflow-hidden">
         <div className="grid md:grid-cols-2">
           <div className="p-6 sm:p-8 lg:p-10 space-y-4 flex flex-col justify-center">
-            <h1 className="text-3xl font-bold">Wisata yang ada di Desa Tatengesan</h1>
-            <p className="text-slate-700">
-              Penjelasan dan deskripsi singkat mengenai wisata.
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+              Wisata yang ada di Desa Tatengesan
+            </h1>
+            <p className="text-sm sm:text-base text-slate-700">
+              Penjelasan dan deskripsi singkat mengenai potensi wisata desa.
             </p>
 
-            <div className="flex gap-3 pt-2">
+            <div className="flex flex-wrap gap-3 pt-2">
               <a
                 href="https://maps.google.com"
                 target="_blank"
-                className="px-5 py-2 rounded-full bg-slate-800 text-white text-sm"
+                rel="noreferrer"
+                className="px-5 py-2 rounded-full bg-slate-800 text-white text-sm font-semibold hover:bg-slate-900 transition-colors"
               >
                 Lihat Lokasi
               </a>
               <a
                 href="https://wa.me/6281234567890"
                 target="_blank"
-                className="px-5 py-2 rounded-full border bg-slate-50 text-sm"
+                rel="noreferrer"
+                className="px-5 py-2 rounded-full border border-slate-200 bg-slate-50 text-sm font-semibold text-slate-800 hover:bg-white transition-colors"
               >
                 Hubungi via WhatsApp
               </a>
@@ -277,8 +348,10 @@ function WisataSection() {
               <div className="h-10 w-10 flex items-center justify-center rounded-full bg-sky-50 text-sky-700">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="font-semibold">{item.title}</h3>
-              <p className="text-sm text-slate-700">{item.desc}</p>
+              <h3 className="font-semibold text-sm sm:text-base">
+                {item.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-700">{item.desc}</p>
             </div>
           );
         })}
