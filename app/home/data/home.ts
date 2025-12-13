@@ -5,13 +5,13 @@ export const MAP_EMBED_URL =
 
 export const STRUKTUR_DESA = [
   {
-    nama: "Jeanne H. Walewangko, S.P.",
+    nama: "Jouke Drisje Punusingon",
     jabatan: "Hukum Tua",
     foto: "/kumtuatatengesan.jpeg",
   },
   {
     nama: "Arie Sandy Rautoy",
-    jabatan: "Sekretaris Desa",
+    jabatan: "PLT. Sekretaris Desa",
     foto: "/ariesandy.jpeg",
   },
   {

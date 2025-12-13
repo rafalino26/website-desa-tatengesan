@@ -1,4 +1,5 @@
 // src/app/profil/components/LokasiDesaSection.tsx
+import Image from "next/image";
 import { PROFIL_LOKASI } from "../data/profil";
 
 export default function LokasiDesaSection() {
@@ -15,9 +16,11 @@ export default function LokasiDesaSection() {
         </p>
       </div>
 
+      
+
       <div className="grid gap-6 md:grid-cols-2">
-        {/* PETA */}
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
+        {/* PETA (GOOGLE MAPS EMBED) */}
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <iframe
             src={mapUrl}
             loading="lazy"
@@ -56,7 +59,7 @@ export default function LokasiDesaSection() {
           <hr className="my-4 border-slate-200" />
 
           {/* Luas wilayah */}
-          <div className="  px-4 py-3">
+          <div className="px-4 py-3">
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
               Luas Wilayah
             </p>
@@ -71,6 +74,32 @@ export default function LokasiDesaSection() {
           </div>
         </div>
       </div>
+
+      {/* ====== GAMBAR PETA STATIS (FULL LEBAR) ====== */}
+<div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+  {/* Judul */}
+  <div className="border-b border-slate-200 px-6 py-4">
+    <h3 className="text-lg font-bold text-slate-900">
+      Peta Daerah Desa Tatengesan
+    </h3>
+    <p className="mt-1 text-xs md:text-sm text-slate-600">
+      Peta administrasi wilayah Desa Tatengesan
+    </p>
+  </div>
+
+  {/* Gambar */}
+  <div className="relative w-full p-4">
+    <Image
+      src="/petadaerah.png"
+      alt="Peta Wilayah Desa Tatengesan"
+      width={1600}
+      height={900}
+      className="h-auto w-full object-contain"
+      priority
+    />
+  </div>
+</div>
+
     </section>
   );
 }

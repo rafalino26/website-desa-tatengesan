@@ -223,11 +223,11 @@ function WisataSection() {
           </div>
 
           <div className="relative p-3
-  h-80
-  sm:h-96
-  md:h-[420px]
-  lg:h-[480px]
-">
+              h-80
+              sm:h-96
+              md:h-[420px]
+              lg:h-[480px]
+            ">
 
             <div className="relative h-full w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <Image

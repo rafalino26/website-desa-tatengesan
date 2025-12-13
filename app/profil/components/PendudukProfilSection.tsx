@@ -3,14 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 import { AnimatedNumber } from "@/app/home/components/AnimatedNumber";
 import { PENDUDUK_STATS } from "@/app/home/data/home";
-import {
-  PENDUDUK_BY_JAGA,
-  PENDUDUK_BY_PROFESI,
-  PENDUDUK_BY_UMUR,
-  PENDUDUK_BY_AGAMA,
-} from "../data/profil";
+import { PENDUDUK_BY_JAGA } from "../data/profil";
 
 import {
   PieChart,
@@ -18,11 +14,6 @@ import {
   Cell,
   Tooltip,
   ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
 } from "recharts";
 
 // Palette warna pie
@@ -39,9 +30,6 @@ const PIE_COLORS = [
   "#A0F3AD",
 ];
 
-// Warna bar (1 warna, mirip contoh)
-const BAR_COLOR = "#00D5C9";
-
 export default function PendudukProfilSection() {
   // Animasi chart baru jalan saat discroll ke bagian ini
   const chartsRef = useRef<HTMLDivElement | null>(null);
@@ -54,15 +42,14 @@ export default function PendudukProfilSection() {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
-          setAnimateCharts(true); // trigger animasi
-          observer.disconnect(); // cukup sekali saja
+          setAnimateCharts(true);
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
 
     observer.observe(chartsRef.current);
-
     return () => observer.disconnect();
   }, []);
 
@@ -81,10 +68,7 @@ export default function PendudukProfilSection() {
         <div className="md:hidden">
           <div className="grid grid-cols-3 gap-x-4 gap-y-6 text-center">
             {PENDUDUK_STATS.map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col items-center gap-1"
-              >
+              <div key={item.label} className="flex flex-col items-center gap-1">
                 <div className="h-12 w-12">
                   <Image
                     src={item.icon}
@@ -182,229 +166,112 @@ export default function PendudukProfilSection() {
         </div>
       </div>
 
-      {/* ====== GRAFIK ====== */}
+      {/* ====== GRAFIK (REVISI) ====== */}
       <div ref={chartsRef} className="space-y-8">
-        {/* 2 pie chart berdampingan */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* Pie jaga */}
-          <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-            <h3 className="text-sm font-semibold text-slate-800 md:text-base">
-              Distribusi Penduduk per Jaga
-            </h3>
-            <div className="mt-4 h-64">
-              {animateCharts && (
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={PENDUDUK_BY_JAGA}
-                      dataKey="value"
-                      nameKey="name"
-                      outerRadius="80%"
-                      label
-                      animationBegin={0}
-                      animationDuration={1200}
-                    >
-                      {PENDUDUK_BY_JAGA.map((entry, index) => (
-                        <Cell
-                          key={`cell-jaga-${entry.name}`}
-                          fill={PIE_COLORS[index % PIE_COLORS.length]}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              )}
-            </div>
+        {/* Pie Jaga di tengah sendiri */}
+        <div className="mx-auto w-full max-w-3xl rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+          <h3 className="text-sm font-semibold text-slate-800 md:text-base text-center">
+            Distribusi Penduduk per Jaga
+          </h3>
 
-            {/* Legend custom */}
-            <div className="mt-4 flex flex-wrap gap-3 text-xs md:text-sm">
-              {PENDUDUK_BY_JAGA.map((item, index) => (
-                <div
-                  key={`legend-jaga-${item.name}`}
-                  className="inline-flex items-center gap-2"
-                >
-                  <span
-                    className="h-3 w-3 rounded-full"
-                    style={{
-                      backgroundColor: PIE_COLORS[index % PIE_COLORS.length],
-                    }}
-                  />
-                  <span className="text-slate-700">{item.name}</span>
-                </div>
-              ))}
-            </div>
+          <div className="mt-4 h-72">
+            {animateCharts && (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={PENDUDUK_BY_JAGA}
+                    dataKey="value"
+                    nameKey="name"
+                    outerRadius="80%"
+                    label
+                    animationBegin={0}
+                    animationDuration={1200}
+                  >
+                    {PENDUDUK_BY_JAGA.map((entry, index) => (
+                      <Cell
+                        key={`cell-jaga-${entry.name}`}
+                        fill={PIE_COLORS[index % PIE_COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            )}
           </div>
 
-          {/* Pie profesi */}
-          <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-            <h3 className="text-sm font-semibold text-slate-800 md:text-base">
-              Distribusi Penduduk berdasarkan Profesi Utama
-            </h3>
-            <div className="mt-4 h-64">
-              {animateCharts && (
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={PENDUDUK_BY_PROFESI}
-                      dataKey="value"
-                      nameKey="name"
-                      outerRadius="80%"
-                      label
-                      animationBegin={0}
-                      animationDuration={1200}
-                    >
-                      {PENDUDUK_BY_PROFESI.map((entry, index) => (
-                        <Cell
-                          key={`cell-profesi-${entry.name}`}
-                          fill={PIE_COLORS[index % PIE_COLORS.length]}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              )}
-            </div>
-
-            {/* Legend custom */}
-            <div className="mt-4 flex flex-wrap gap-3 text-xs md:text-sm">
-              {PENDUDUK_BY_PROFESI.map((item, index) => (
-                <div
-                  key={`legend-profesi-${item.name}`}
-                  className="inline-flex items-center gap-2"
-                >
-                  <span
-                    className="h-3 w-3 rounded-full"
-                    style={{
-                      backgroundColor: PIE_COLORS[index % PIE_COLORS.length],
-                    }}
-                  />
-                  <span className="text-slate-700">{item.name}</span>
-                </div>
-              ))}
-            </div>
+          {/* Legend custom */}
+          <div className="mt-4 flex flex-wrap justify-center gap-3 text-xs md:text-sm">
+            {PENDUDUK_BY_JAGA.map((item, index) => (
+              <div
+                key={`legend-jaga-${item.name}`}
+                className="inline-flex items-center gap-2"
+              >
+                <span
+                  className="h-3 w-3 rounded-full"
+                  style={{
+                    backgroundColor: PIE_COLORS[index % PIE_COLORS.length],
+                  }}
+                />
+                <span className="text-slate-700">{item.name}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* 2 bar chart berdampingan: umur & agama */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* Bar chart umur */}
-          <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-            <h3 className="text-sm font-semibold text-slate-800 md:text-base">
-              Penduduk berdasarkan Kelompok Umur
-            </h3>
-            <div className="mt-4 h-72">
-              {animateCharts && (
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={PENDUDUK_BY_UMUR}
-                    margin={{ top: 10, right: 20, left: 0, bottom: 20 }}
-                  >
-                    <CartesianGrid
-                      stroke="#E5E7EB"
-                      strokeDasharray="3 3"
-                      vertical={false}
-                    />
-                    <XAxis
-                      dataKey="range"
-                      tick={{ fontSize: 11, fill: "#6B7280" }}
-                      tickLine={false}
-                      axisLine={{ stroke: "#E5E7EB" }}
-                      interval={0}
-                    />
-                    <YAxis
-                      allowDecimals={false}
-                      tick={{ fontSize: 11, fill: "#6B7280" }}
-                      tickLine={false}
-                      axisLine={{ stroke: "#E5E7EB" }}
-                    />
-                    <Tooltip
-                      cursor={{ fill: "rgba(0, 213, 201, 0.08)" }}
-                    />
-                    <Bar
-                      dataKey="value"
-                      radius={[6, 6, 0, 0]}
-                      fill={BAR_COLOR}
-                      barSize={32}
-                      animationBegin={0}
-                      animationDuration={1200}
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
-              )}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 text-xs md:text-sm">
-              <span
-                className="h-3 w-3 rounded-full"
-                style={{ backgroundColor: BAR_COLOR }}
-              />
-              <span className="text-slate-700">
-                Setiap batang merepresentasikan jumlah penduduk per kelompok umur.
-              </span>
-            </div>
-          </div>
-
-          {/* Bar chart agama */}
-          <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-            <h3 className="text-sm font-semibold text-slate-800 md:text-base">
-              Penduduk berdasarkan Agama
-            </h3>
-            <div className="mt-4 h-72">
-              {animateCharts && (
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    data={PENDUDUK_BY_AGAMA}
-                    margin={{ top: 10, right: 20, left: 0, bottom: 30 }}
-                  >
-                    <CartesianGrid
-                      stroke="#E5E7EB"
-                      strokeDasharray="3 3"
-                      vertical={false}
-                    />
-                    <XAxis
-                      dataKey="name"
-                      tick={{ fontSize: 11, fill: "#6B7280" }}
-                      tickLine={false}
-                      axisLine={{ stroke: "#E5E7EB" }}
-                      interval={0}
-                      tickMargin={8}
-                    />
-                    <YAxis
-                      allowDecimals={false}
-                      tick={{ fontSize: 11, fill: "#6B7280" }}
-                      tickLine={false}
-                      axisLine={{ stroke: "#E5E7EB" }}
-                    />
-                    <Tooltip
-                      cursor={{ fill: "rgba(0, 213, 201, 0.08)" }}
-                    />
-                    <Bar
-                      dataKey="value"
-                      radius={[6, 6, 0, 0]}
-                      fill={BAR_COLOR}
-                      barSize={32}
-                      animationBegin={0}
-                      animationDuration={1200}
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
-              )}
-            </div>
-
-            <div className="mt-4 flex items-center gap-2 text-xs md:text-sm">
-              <span
-                className="h-3 w-3 rounded-full"
-                style={{ backgroundColor: BAR_COLOR }}
-              />
-              <span className="text-slate-700">
-                Setiap batang merepresentasikan jumlah penduduk per agama.
-              </span>
-            </div>
-          </div>
+        {/* 2 Card teks (Profesi & Agama) */}
+        <div className="grid gap-5 md:grid-cols-2 md:max-w-4xl md:mx-auto">
+          <InfoCard
+            title="Distribusi Profesi"
+            desc="Pekerjaan masyarakat di Tatengesan mayoritasnya petani, sisanya nelayan, ASN, dan karyawan swasta."
+          />
+          <InfoCard
+            title="Distribusi Agama"
+            desc="Agama di Desa Tatengesan terdiri dari Kristen dan Muslim, namun mayoritas penduduk beragama Muslim."
+          />
         </div>
       </div>
     </section>
+  );
+}
+
+function InfoCard({
+  title,
+  desc,
+}: {
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div
+      className="
+        group flex min-h-[180px] flex-col gap-3 rounded-2xl
+        border border-slate-200 bg-white p-5 transition
+        hover:-translate-y-0.5 hover:border-transparent
+        hover:bg-linear-to-br hover:from-[#e53935] hover:via-[#f9683a] hover:to-[#f4511e]
+      "
+    >
+      <div className="flex items-start gap-4">
+        {/* ICON BULAT */}
+        <div
+          className="
+            flex h-12 w-12 shrink-0 items-center justify-center
+            rounded-full bg-[#c20000] text-white transition
+            group-hover:bg-white group-hover:text-[#e53935]
+          "
+        >
+          <span className="text-xl font-extrabold">i</span>
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-bold text-slate-900 transition group-hover:text-white">
+            {title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600 transition group-hover:text-white/90">
+            {desc}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
