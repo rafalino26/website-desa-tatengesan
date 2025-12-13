@@ -21,8 +21,8 @@ export default function ConfirmLogoutModal({
     <ModalShell title="Logout Admin" onClose={onClose}>
       <p className="text-sm text-slate-700">
         Anda akan keluar dari mode{" "}
-        <span className="font-semibold">Admin Berita</span>. Untuk menambah
-        atau mengedit berita lagi, Anda perlu login kembali.
+        <span className="font-semibold">Admin</span>. Untuk menambah
+        atau mengedit kegiatan lagi, Anda perlu login kembali.
       </p>
 
       <div className="mt-6 flex justify-end gap-2">

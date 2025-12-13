@@ -5,7 +5,6 @@ import QuickLinksSection from "@/app/home/components/QuickLinksSection";
 import MapSection from "@/app/home/components/MapSection";
 import StrukturPreview from "@/app/home/components/StrukturPreview";
 import PendudukPreview from "@/app/home/components/PendudukPreview";
-import ApbdesPreview from "@/app/home/components/ApbdesPreview";
 import PendidikanSection from "@/app/home/components/PendidikanSection";
 import RumahIbadahSection from "@/app/home/components/RumahIbadahSection";
 import GaleriPreview from "@/app/home/components/GaleriPreview";
@@ -23,7 +22,6 @@ export default function HomePage() {
       <MapSection />
       <StrukturPreview />
       <PendudukPreview />
-      <ApbdesPreview />
       <PendidikanSection />
       <RumahIbadahSection />
       <GaleriPreview />

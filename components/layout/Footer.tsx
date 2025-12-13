@@ -4,7 +4,6 @@ const footerNavItems = [
   { label: "Beranda", href: "/" },
   { label: "Profil Desa", href: "/profil" },
   { label: "Penduduk", href: "/penduduk" },
-  { label: "APBDes", href: "/apbdes" },
   { label: "Berita", href: "/berita" },
   { label: "Tentang", href: "/Tentang" },
 ];
@@ -66,14 +65,6 @@ export default function Footer() {
               Lainnya
             </h3>
             <ul className="mt-2 space-y-1.5">
-              <li>
-                <Link
-                  href="/apbdes"
-                  className="font-semibold text-white/90 hover:text-white hover:underline"
-                >
-                  Transparansi APBDes
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/kontak"

@@ -6,48 +6,63 @@ export const MAP_EMBED_URL =
 export const STRUKTUR_DESA = [
   {
     nama: "Jeanne H. Walewangko, S.P.",
-    jabatan: "Kepala Desa",
+    jabatan: "Hukum Tua",
+    foto: "/kumtuatatengesan.jpeg",
+  },
+  {
+    nama: "Arie Sandy Rautoy",
+    jabatan: "Sekretaris Desa",
+    foto: "/ariesandy.jpeg",
+  },
+  {
+    nama: "Fera F. Langi",
+    jabatan: "Kaur Umum",
+    foto: "/feralangi.jpeg",
+  },
+  {
+    nama: "Rozalia Wungkana",
+    jabatan: "Kaur Keuangan",
     foto: "/struktur/kades.jpg",
   },
   {
-    nama: "John Suatan",
-    jabatan: "Sekretaris Desa",
+    nama: "Jefry Wahongan",
+    jabatan: "Kaur Perencanaan",
     foto: "/struktur/sekdes.jpg",
   },
   {
-    nama: "Feby Tular",
-    jabatan: "Kaur Keuangan",
+    nama: "Arthur Wawongan",
+    jabatan: "Kasie Pemerintahan",
     foto: "/struktur/kaur-keuangan.jpg",
   },
   {
-    nama: "Jeanne H. Walewangko, S.P.",
-    jabatan: "Kepala Desa",
-    foto: "/struktur/kades.jpg",
+    nama: "Arie Sandy Rautoy",
+    jabatan: "Kasie Kesejahteraan",
+    foto: "/ariesandy.jpeg",
   },
   {
-    nama: "John Suatan",
-    jabatan: "Sekretaris Desa",
+    nama: "Fatimah Manumpil",
+    jabatan: "Kasie Pelayanan",
     foto: "/struktur/sekdes.jpg",
   },
   {
-    nama: "Feby Tular",
-    jabatan: "Kaur Keuangan",
-    foto: "/struktur/kaur-keuangan.jpg",
-  },
+    nama: "Rini Kalalo",
+    jabatan: "Kepala Jaga I",
+    foto: "/rinikalalo.jpeg",
+  }, 
   {
-    nama: "Jeanne H. Walewangko, S.P.",
-    jabatan: "Kepala Desa",
-    foto: "/struktur/kades.jpg",
-  },
+    nama: "Chandra Maringka",
+    jabatan: "Kepala Jaga II",
+    foto: "/chandramaringka.jpeg",
+  }, 
   {
-    nama: "John Suatan",
-    jabatan: "Sekretaris Desa",
-    foto: "/struktur/sekdes.jpg",
-  },
+    nama: "Alfani Silom",
+    jabatan: "Kepala Jaga III",
+    foto: "/alfanisilom.jpeg",
+  }, 
   {
-    nama: "Feby Tular",
-    jabatan: "Kaur Keuangan",
-    foto: "/struktur/kaur-keuangan.jpg",
+    nama: "Fajri Malingkas",
+    jabatan: "Kepala Jaga IV",
+    foto: "/fajrimalingkas.jpeg",
   }, 
   // tambah sendiri kalau perlu
 ];
@@ -78,11 +93,6 @@ export const PENDUDUK_STATS = [
     value: 4,
     icon: "/keluarga.png",
   },
-  {
-    label: "Mutasi Penduduk",
-    value: 1,
-    icon: "/mutasipenduduk.png",
-  },
 ];
 
 
@@ -92,18 +102,19 @@ export const APBDES_PREVIEW = {
 };
 
 export const PENDIDIKAN_LIST = [
-  "...",
-  "...",
-  "...",
-  "...",
+  "TK Mutiara Tatengesan",
+  "TK GMIM Faret Tatengesan",
+  "SD GMIM 361 Tatengesan",
+  "SD Inpres Tatengesan",
 ];
 
 export const RUMAH_IBADAH_LIST = [
-  "...",
-  "...",
-  "...",
-  "...",
+  "GMIM Imanuel Tatengesan Makalu",
+  "GPdI Shekina Tatengesan",
+  "Gereja Penyebaran Injil Jemaat Kapernaum Tatengesan",
+  "Masjid Al-Muhajirin Tatengesan",
 ];
+
 
 export const GALERI_DESA = [
   { src: "/galeri/1.jpg", alt: "Kegiatan desa 1" },

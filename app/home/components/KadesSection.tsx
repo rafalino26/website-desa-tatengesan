@@ -9,8 +9,8 @@ export default function KadesSection() {
           Jelajahi Desa Tatengesan
         </h2>
         <p className="mt-10 text-sm text-slate-700 md:text-lg">
-          Temukan informasi lengkap tentang Pemerintahan, Penduduk, APBDes,
-          Berita, dan layanan desa Tatengesan.
+          Temukan informasi lengkap tentang Pemerintahan, Penduduk, Potensi,
+          Kegiatan, dan layanan desa Tatengesan.
         </p>
       </div>
 
@@ -20,10 +20,10 @@ export default function KadesSection() {
         <div className="flex justify-center">
           <div className="relative h-52 w-52 overflow-hidden rounded-full border-4 border-[#e53935]/80 bg-white shadow-md md:h-64 md:w-64">
             <Image
-              src="/kades-placeholder.png"
+              src="/kumtuatatengesan.jpeg"
               alt="Kepala Desa Tatengesan"
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function KadesSection() {
             Sambutan Kepala Desa
           </h3>
           <p className="mt-2 text-base font-semibold text-slate-900 md:text-lg">
-            [Nama Kepala Desa]
+            Jouke Drisje Punusingon
           </p>
           <p className="mt-1 text-xs text-slate-500 md:text-sm">
             Kepala Desa Tatengesan

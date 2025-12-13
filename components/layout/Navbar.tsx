@@ -8,8 +8,7 @@ const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Profil Desa", href: "/profil" },
   { label: "Potensi Desa", href: "/potensi" },
-  { label: "APBDes", href: "/apbdes" },
-  { label: "Berita", href: "/berita" },
+  { label: "kegiatan", href: "/berita" },
   { label: "Tentang", href: "/Tentang" },
 ];
 

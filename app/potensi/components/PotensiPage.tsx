@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 
-// icons (pastikan semua ada di lucide-react)
+// icons
 import {
   Flame,
   Sparkles,
@@ -12,19 +12,12 @@ import {
   Users,
   Camera,
   MapPin,
-  Drumstick,
-  Egg,
   Leaf,
 } from "lucide-react";
 
-import {
-  HORTI_ITEMS,
-  PANGAN_ITEMS,
-  PETERNAKAN_ITEMS,
-  WISATA_FEATURES,
-} from "@/app/potensi/data/potensi";
+import { WISATA_FEATURES, PERTANIAN_ITEMS } from "@/app/potensi/data/potensi";
 
-type TabKey = "pertanian" | "peternakan" | "wisata";
+type TabKey = "pertanian" | "wisata";
 
 export default function PotensiPage() {
   const [activeTab, setActiveTab] = useState<TabKey>("pertanian");
@@ -36,18 +29,12 @@ export default function PotensiPage() {
         <div className="space-y-3">
           {/* MOBILE: icon grid */}
           <div className="md:hidden flex justify-center">
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 gap-3">
               <MobileTabIconButton
                 label="Pertanian"
                 icon={Leaf}
                 active={activeTab === "pertanian"}
                 onClick={() => setActiveTab("pertanian")}
-              />
-              <MobileTabIconButton
-                label="Peternakan"
-                icon={Drumstick}
-                active={activeTab === "peternakan"}
-                onClick={() => setActiveTab("peternakan")}
               />
               <MobileTabIconButton
                 label="Wisata"
@@ -67,11 +54,6 @@ export default function PotensiPage() {
                 onClick={() => setActiveTab("pertanian")}
               />
               <TabButton
-                label="Potensi Peternakan"
-                active={activeTab === "peternakan"}
-                onClick={() => setActiveTab("peternakan")}
-              />
-              <TabButton
                 label="Potensi Wisata"
                 active={activeTab === "wisata"}
                 onClick={() => setActiveTab("wisata")}
@@ -82,7 +64,6 @@ export default function PotensiPage() {
 
         {/* ====== CONTENT ====== */}
         {activeTab === "pertanian" && <PertanianSection />}
-        {activeTab === "peternakan" && <PeternakanSection />}
         {activeTab === "wisata" && <WisataSection />}
       </div>
     </main>
@@ -166,8 +147,8 @@ function PertanianSection() {
           Potensi Pertanian Desa Tatengesan
         </h1>
         <p className="max-w-3xl text-sm sm:text-base text-slate-700">
-          Desa Tatengesan memiliki potensi besar di sektor pertanian, khususnya
-          hortikultura dan tanaman pangan.
+          Desa Tatengesan memiliki potensi pertanian dengan komoditas utama
+          seperti padi, jagung, kelapa, dan nilam.
         </p>
       </div>
 
@@ -182,16 +163,16 @@ function PertanianSection() {
         </div>
       </div>
 
-      {/* Hortikultura */}
+      {/* Pertanian (ZIGZAG) */}
       <div className="space-y-10">
-        {HORTI_ITEMS.map((item, idx) => (
+        {PERTANIAN_ITEMS.map((item, idx) => (
           <div
             key={item.nama}
             className={`flex flex-col gap-6 md:gap-10 ${
               idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
-            <div className="relative w-full md:w-1/2 h-56 sm:h-64 md:h-72 rounded-3xl overflow-hidden shadow-sm">
+            <div className="relative w-full md:w-1/2 h-56 sm:h-64 md:h-72 rounded-3xl overflow-hidden shadow-sm bg-slate-100">
               <Image
                 src={item.gambar}
                 alt={item.nama}
@@ -206,72 +187,6 @@ function PertanianSection() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Pangan */}
-      <div className="space-y-10 border-t pt-6">
-        {PANGAN_ITEMS.map((item, idx) => (
-          <div
-            key={item.nama}
-            className={`flex flex-col gap-6 md:gap-10 ${
-              idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-            }`}
-          >
-            <div className="relative w-full md:w-1/2 h-56 sm:h-64 md:h-72 rounded-3xl overflow-hidden shadow-sm">
-              <Image
-                src={item.gambar}
-                alt={item.nama}
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="w-full md:w-1/2 space-y-2 md:self-center">
-              <h3 className="text-xl font-semibold">{item.nama}</h3>
-              <p className="text-slate-700">{item.deskripsi}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ===========================
-      PETERNAKAN SECTION
-   =========================== */
-
-const peternakanIconMap = {
-  sapi: Drumstick,
-  ayam: Egg,
-  lainnya: Leaf,
-} as const;
-
-function PeternakanSection() {
-  return (
-    <section className="space-y-8">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-        Potensi Peternakan
-      </h1>
-
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {PETERNAKAN_ITEMS.map((item) => {
-          const Icon = peternakanIconMap[item.icon] ?? Leaf;
-
-          return (
-            <div
-              key={item.nama}
-              className="bg-white rounded-2xl p-5 shadow-sm ring-1 ring-slate-100 space-y-3"
-            >
-              <div className="h-10 w-10 flex items-center justify-center rounded-full bg-sky-50 text-sky-700">
-                <Icon className="h-5 w-5" />
-              </div>
-
-              <h3 className="text-base font-semibold">{item.nama}</h3>
-              <p className="text-sm text-slate-700">{item.deskripsi}</p>
-            </div>
-          );
-        })}
       </div>
     </section>
   );
@@ -288,6 +203,7 @@ const wisataIconMap = {
   users: Users,
   camera: Camera,
   mapPin: MapPin,
+  leaf: Leaf,
 } as const;
 
 function WisataSection() {
@@ -298,40 +214,31 @@ function WisataSection() {
         <div className="grid md:grid-cols-2">
           <div className="p-6 sm:p-8 lg:p-10 space-y-4 flex flex-col justify-center">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
-              Wisata yang ada di Desa Tatengesan
+              Wisata Hutan Mangrove Desa Tatengesan
             </h1>
             <p className="text-sm sm:text-base text-slate-700">
-              Penjelasan dan deskripsi singkat mengenai potensi wisata desa.
+              Hutan mangrove merupakan potensi wisata alam yang dapat
+              dikembangkan sebagai ekowisata dan wisata edukasi lingkungan.
             </p>
+          </div>
 
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2 rounded-full bg-slate-800 text-white text-sm font-semibold hover:bg-slate-900 transition-colors"
-              >
-                Lihat Lokasi
-              </a>
-              <a
-                href="https://wa.me/6281234567890"
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2 rounded-full border border-slate-200 bg-slate-50 text-sm font-semibold text-slate-800 hover:bg-white transition-colors"
-              >
-                Hubungi via WhatsApp
-              </a>
+          <div className="relative p-3
+  h-80
+  sm:h-96
+  md:h-[420px]
+  lg:h-[480px]
+">
+
+            <div className="relative h-full w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <Image
+                src="/mangrove.jpeg"
+                alt="Wisata Hutan Mangrove"
+                fill
+                className="object-cover object-[50%_85%]"
+              />
             </div>
           </div>
 
-          <div className="relative h-64 sm:h-72 md:h-full">
-            <Image
-              src="/potensi/wisata-rano.jpg"
-              alt="Wisata Rano Reindang"
-              fill
-              className="object-cover"
-            />
-          </div>
         </div>
       </div>
 

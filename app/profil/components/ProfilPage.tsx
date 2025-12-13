@@ -1,4 +1,3 @@
-import VisiMisiSection from "./VisiMisiSection";
 import BaganDesaSection from "./BaganDesaSection";
 import SejarahDesaSection from "./SejarahDesaSection";
 import LokasiDesaSection from "./LokasiDesaSection";
@@ -7,13 +6,6 @@ import PendudukProfilSection from "./PendudukProfilSection";
 export default function ProfilPage() {
   return (
     <main>
-      {/* Visi & Misi */}
-      <section className="bg-[#ffe6e6]">
-        <div className="mx-auto max-w-7xl px-4 md:px-1 py-12 md:py-16">
-          <VisiMisiSection />
-        </div>
-      </section>
-
       {/* Bagan */}
       <section>
         <div className="mx-auto max-w-7xl px-4 md:px-1 py-12 md:py-16">

@@ -29,7 +29,7 @@ export default async function BeritaPage() {
             Informasi Desa Tatengesan
           </p>
           <h1 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Berita &amp; Kegiatan Desa
+            Kegiatan Desa
           </h1>
           <p className="mt-2 text-sm text-white/90 md:text-base">
             Ikuti perkembangan terbaru seputar kegiatan pemerintahan,

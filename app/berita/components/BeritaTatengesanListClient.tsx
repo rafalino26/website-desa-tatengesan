@@ -101,7 +101,7 @@ export default function BeritaTatengesanListClient({
       <div className="mb-6 flex items-center justify-between gap-3">
         {isAdmin ? (
           <p className="text-xs text-slate-500">
-            Anda login sebagai <span className="font-semibold">Admin Berita</span>.
+            Anda login sebagai admin.
           </p>
         ) : (
           <span />
@@ -128,7 +128,7 @@ export default function BeritaTatengesanListClient({
               shadow-sm ring-1 ring-black/5 hover:bg-[#a80000]"
           >
             <Plus size={16} />
-            Tambah Berita Baru
+            Tambah Kegiatan Baru
           </button>
         </div>
       </div>
@@ -153,7 +153,7 @@ export default function BeritaTatengesanListClient({
           ))
         ) : (
           <p className="md:col-span-3 py-10 text-center text-slate-500">
-            Belum ada berita untuk ditampilkan.
+            Belum ada kegiatan untuk ditampilkan.
           </p>
         )}
       </div>

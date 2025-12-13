@@ -5,7 +5,7 @@ import { BAGAN_DESA_DESKRIPSI, BAGAN_DESA_IMAGE } from "../data/profil";
 
 export default function BaganDesaSection() {
   return (
-    <section className="space-y-6">
+    <section id="struktur-desa"className="space-y-6">
       <div className="text-center md:text-left">
         <h2 className="text-3xl md:text-4xl font-bold text-[#e53935]">
           Struktur Desa

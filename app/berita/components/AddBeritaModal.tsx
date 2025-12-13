@@ -52,14 +52,14 @@ export default function AddBeritaModal({
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-1">
           <label className="text-sm font-medium text-slate-800">
-            Judul Berita
+            Judul Kegiatan
           </label>
           <input
             type="text"
             className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#c20000] focus:ring-1 focus:ring-[#c20000]"
             value={judul}
             onChange={(e) => setJudul(e.target.value)}
-            placeholder="Masukkan judul berita"
+            placeholder="Masukkan judul kegiatan"
           />
         </div>
 
@@ -71,19 +71,19 @@ export default function AddBeritaModal({
             className="h-20 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#c20000] focus:ring-1 focus:ring-[#c20000]"
             value={ringkasan}
             onChange={(e) => setRingkasan(e.target.value)}
-            placeholder="Ringkasan singkat berita"
+            placeholder="Ringkasan singkat kegiatan"
           />
         </div>
 
         <div className="space-y-1">
           <label className="text-sm font-medium text-slate-800">
-            Isi Berita
+            Isi kegiatan
           </label>
           <textarea
             className="h-40 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-[#c20000] focus:ring-1 focus:ring-[#c20000]"
             value={isi}
             onChange={(e) => setIsi(e.target.value)}
-            placeholder="Tulis isi berita di sini..."
+            placeholder="Tulis isi kegiatan di sini..."
           />
         </div>
 
@@ -94,7 +94,7 @@ export default function AddBeritaModal({
             onChange={(e) => setPublished(e.target.checked)}
             className="h-4 w-4 rounded border-slate-300 text-[#c20000] focus:ring-[#c20000]"
           />
-          Tampilkan berita ini ke publik
+          Tampilkan kegiatan ini ke publik
         </label>
 
         {error && <p className="text-sm text-red-600">{error}</p>}

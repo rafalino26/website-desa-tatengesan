@@ -23,7 +23,6 @@ export default function MapSection() {
         />
       </div>
 
-      {/* 🔥 Tombol Lihat Selengkapnya */}
       <div className="flex justify-end">
         <Link
           href="/profil#lokasi-desa"

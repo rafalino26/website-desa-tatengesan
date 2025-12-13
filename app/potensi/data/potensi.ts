@@ -1,7 +1,7 @@
 // src/app/potensi/data/potensi.ts
 
 // ======================
-// PERTANIAN
+// PERTANIAN UMUM
 // ======================
 
 export type PotensiItemWithImage = {
@@ -10,119 +10,79 @@ export type PotensiItemWithImage = {
   gambar: string;
 };
 
-export const HORTI_ITEMS: PotensiItemWithImage[] = [
-  {
-    nama: "Kubis",
-    deskripsi:
-      "Kubis adalah salah satu tanaman sayuran utama yang banyak dibudidayakan di Desa Tatengesan.",
-    gambar: "/potensi/kubis.jpg",
-  },
-  {
-    nama: "Cabai",
-    deskripsi:
-      "Cabai menjadi komoditas unggulan yang banyak dimanfaatkan untuk kebutuhan rumah tangga maupun dijual ke pasar.",
-    gambar: "/potensi/cabai.jpg",
-  },
-  {
-    nama: "Tomat",
-    deskripsi:
-      "Tomat dibudidayakan di lahan-lahan hortikultura dan menjadi sumber pendapatan tambahan bagi petani.",
-    gambar: "/potensi/tomat.jpg",
-  },
-  {
-    nama: "Daun Bawang & Sayuran Lain",
-    deskripsi:
-      "Selain kubis dan cabai, petani juga menanam daun bawang dan berbagai sayuran lain untuk kebutuhan lokal.",
-    gambar: "/potensi/daun-bawang.jpg",
-  },
-];
-
-export const PANGAN_ITEMS: PotensiItemWithImage[] = [
+export const PERTANIAN_ITEMS: PotensiItemWithImage[] = [
   {
     nama: "Padi",
     deskripsi:
-      "Padi masih menjadi tanaman pangan penting untuk konsumsi keluarga dan masyarakat desa.",
-    gambar: "/potensi/padi.jpg",
+      "Padi merupakan tanaman pangan utama yang dibudidayakan oleh masyarakat Desa Tatengesan untuk kebutuhan konsumsi sehari-hari.",
+    gambar: "/padi.jpeg",
+  },
+  {
+    nama: "Nilam",
+    deskripsi:
+      "Nilam menjadi komoditas unggulan yang dimanfaatkan untuk menghasilkan minyak atsiri bernilai ekonomi tinggi.",
+    gambar: "/nilam.jpeg",
+  },
+  {
+    nama: "Kelapa",
+    deskripsi:
+      "Kelapa tumbuh subur di wilayah desa dan dimanfaatkan untuk berbagai kebutuhan rumah tangga dan ekonomi.",
+    gambar: "/kelapa.jpeg",
   },
   {
     nama: "Jagung",
     deskripsi:
-      "Jagung dimanfaatkan sebagai bahan pangan, pakan ternak, dan komoditas jual di tingkat kecamatan.",
-    gambar: "/potensi/jagung.jpg",
+      "Jagung dibudidayakan sebagai bahan pangan alternatif dan sumber penghasilan tambahan bagi petani desa.",
+    gambar: "/jagung.jpeg",
   },
 ];
 
 // ======================
-// PETERNAKAN
-// ======================
-
-export type PeternakanItem = {
-  icon: "sapi" | "ayam" | "lainnya";
-  nama: string;
-  deskripsi: string;
-};
-
-export const PETERNAKAN_ITEMS: PeternakanItem[] = [
-  {
-    icon: "sapi",
-    nama: "Ternak Sapi",
-    deskripsi:
-      "Sapi dipelihara sebagai tabungan jangka panjang dan menghasilkan pupuk kandang untuk lahan pertanian.",
-  },
-  {
-    icon: "ayam",
-    nama: "Ayam Kampung",
-    deskripsi:
-      "Ayam kampung dipelihara hampir di setiap rumah tangga sebagai sumber protein dan tambahan pendapatan.",
-  },
-  {
-    icon: "lainnya",
-    nama: "Ternak Babi & Kambing",
-    deskripsi:
-      "Babi dan kambing mendukung kebutuhan adat istiadat dan menjadi komoditas yang dijual antar desa.",
-  },
-  
-];
-
-// ======================
-// WISATA
+// WISATA (HUTAN MANGROVE)
 // ======================
 
 export type WisataFeature = {
-  icon: "flame" | "sparkles" | "mountain" | "users" | "camera" | "mapPin";
+  icon:
+    | "flame"
+    | "sparkles"
+    | "mountain"
+    | "users"
+    | "camera"
+    | "mapPin"
+    | "leaf";
   title: string;
   desc: string;
 };
 
 export const WISATA_FEATURES: WisataFeature[] = [
   {
-    icon: "flame",
-    title: "keunggulan 1",
-    desc: "Kaya mineral & belerang untuk relaksasi.",
+    icon: "mountain",
+    title: "Pelindung Alami Pesisir",
+    desc: "Hutan mangrove berfungsi sebagai benteng alami yang melindungi wilayah pesisir dari abrasi, gelombang laut, angin kencang, serta dampak badai dan banjir rob.",
+  },
+  {
+    icon: "leaf",
+    title: "Menjaga Keseimbangan Ekosistem",
+    desc: "Mangrove menjadi habitat penting bagi berbagai jenis ikan, kepiting, udang, burung, dan biota lainnya sehingga mendukung keanekaragaman hayati dan keseimbangan ekosistem pesisir.",
   },
   {
     icon: "sparkles",
-    title: "keunggulan 2",
-    desc: "Perawatan kulit alami yang populer.",
+    title: "Penyerap Karbon Alami",
+    desc: "Hutan mangrove memiliki kemampuan tinggi dalam menyerap dan menyimpan karbon sehingga berperan penting dalam mengurangi dampak perubahan iklim dan pemanasan global.",
   },
   {
-    icon: "mountain",
-    title: "keunggulan 3",
-    desc: "Uap panas dan perbukitan fotogenik.",
+    icon: "flame",
+    title: "Menjaga Kualitas Lingkungan",
+    desc: "Akar mangrove mampu menyaring limbah dan sedimen sehingga membantu menjaga kualitas air laut dan lingkungan sekitar tetap bersih dan sehat.",
   },
   {
     icon: "users",
-    title: "keunggulan 4",
-    desc: "Area berendam untuk semua usia.",
-  },
-  {
-    icon: "camera",
-    title: "keunggulan 5",
-    desc: "Spot foto unik di kolam uap.",
+    title: "Potensi Wisata Edukasi & Ekowisata",
+    desc: "Hutan mangrove memiliki potensi besar untuk dikembangkan sebagai wisata alam dan wisata edukasi yang meningkatkan kesadaran lingkungan sekaligus menambah pendapatan desa.",
   },
   {
     icon: "mapPin",
-    title: "keunggulan 6",
-    desc: "Rute jelas, parkir tersedia.",
+    title: "Warisan Alam untuk Generasi Mendatang",
+    desc: "Pelestarian hutan mangrove merupakan investasi jangka panjang guna menjaga kelestarian alam dan kesejahteraan generasi masa depan.",
   },
 ];

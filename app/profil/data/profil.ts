@@ -14,9 +14,9 @@ export const MISI_DESA: string[] = [
 ];
 
 // === Bagan / Struktur Pemerintahan ===
-export const BAGAN_DESA_IMAGE = "/bagan-desa.png";
+export const BAGAN_DESA_IMAGE = "/strukturdesa.jpeg";
 export const BAGAN_DESA_DESKRIPSI =
-  "Gambar struktur pemerintahan.";
+  "Gambar struktur desa.";
 
 // === Sejarah Desa ===
 export const SEJARAH_DESA_PARAGRAPHS: string[] = [
@@ -39,18 +39,19 @@ export const PROFIL_LOKASI = {
     "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.227720743306!2d124.86818425707537!3d0.9858549054303656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTknMDguOSJOIDEyNMKwNTInMDUuMSJF!5e0!3m2!1sid!2sid!4v1764754169889!5m2!1sid!2sid",
 
   batas: {
-    utara: "…… (isi batas utara)",
-    timur: "…… (isi batas timur)",
-    selatan: "…… (isi batas selatan)",
-    barat: "…… (isi batas barat)",
+    utara: "Desa Tatengesan Satu",
+    timur: "Desa Bentenen",
+    selatan: "Desa Tumbak",
+    barat: "Desa Makalu Selatan",
   },
 
   luasWilayah: {
-    angka: 345,               // angka saja
-    satuan: "Ha",             // misalnya "Ha" atau "km²"
-    keterangan: "± 3,45 km² wilayah administratif Desa Tatengesan.",
+    angka: 450,
+    satuan: "km²",
+    keterangan: "± 450 km² luas wilayah administratif Desa Tatengesan.",
   },
 };
+
 
 
 export const PENDUDUK_BY_JAGA = [

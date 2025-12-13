@@ -96,7 +96,7 @@ export default function StrukturPreview() {
 
     <div className="flex justify-end">
   <Link
-    href="/struktur"
+    href="/profil#struktur-desa"
     className="
       group inline-flex items-center gap-2 
       text-xl font-bold text-slate-900

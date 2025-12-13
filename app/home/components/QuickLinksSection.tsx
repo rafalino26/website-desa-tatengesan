@@ -4,10 +4,11 @@ import type { IconType } from "react-icons";
 import {
   FiHome,
   FiTrendingUp,
-  FiPieChart,
   FiFileText,
   FiPhoneCall,
+  FiInfo,
 } from "react-icons/fi";
+
 
 type QuickLinkItem = {
   label: string;
@@ -30,12 +31,6 @@ const items: QuickLinkItem[] = [
     icon: FiTrendingUp,
   },
   {
-    label: "APBDes",
-    desc: "APBDes menampilkan laporan keuangan desa yang transparan, meliputi pendapatan, belanja, serta realisasi anggaran pembangunan.",
-    href: "/apbdes",
-    icon: FiPieChart,
-  },
-  {
     label: "Berita Desa",
     desc: "Berita desa menyajikan informasi terkini mengenai kegiatan pemerintahan, pembangunan, dan acara kemasyarakatan di Desa Tatengesan.",
     href: "/berita",
@@ -47,7 +42,14 @@ const items: QuickLinkItem[] = [
     href: "/kontak",
     icon: FiPhoneCall,
   },
+  {
+    label: "Tentang Desa",
+    desc: "Gambaran umum Desa Tatengesan yang berisi dokumentasi foto kehidupan dan lingkungan desa.",
+    href: "/tentang",
+    icon: FiInfo,
+  },
 ];
+
 
 function QuickLinkCard({ item }: { item: QuickLinkItem }) {
   const Icon = item.icon;
