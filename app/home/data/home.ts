@@ -96,23 +96,24 @@ export const PENDUDUK_STATS = [
 ];
 
 
-export const APBDES_PREVIEW = {
-  pendapatan: "Rp 1.200.000.000",
-  belanja: "Rp 1.100.000.000",
+
+export type NamedImageItem = {
+  name: string;
+  image: string; // path di /public
 };
 
-export const PENDIDIKAN_LIST = [
-  "TK Mutiara Tatengesan",
-  "TK GMIM Faret Tatengesan",
-  "SD GMIM 361 Tatengesan",
-  "SD Inpres Tatengesan",
+export const PENDIDIKAN_LIST: NamedImageItem[] = [
+  { name: "TK Mutiara Tatengesan", image: "/tkmutiara.jpeg" },
+  { name: "TK GMIM Ferat Tatengesan", image: "/tkferat.jpeg" },
+  { name: "SD GMIM 361 Tatengesan", image: "/sdgmim.jpeg" },
+  { name: "SD Inpres Tatengesan", image: "/sdinpres.jpeg" },
 ];
 
-export const RUMAH_IBADAH_LIST = [
-  "GMIM Imanuel Tatengesan Makalu",
-  "GPdI Shekina Tatengesan",
-  "Gereja Penyebaran Injil Jemaat Kapernaum Tatengesan",
-  "Masjid Al-Muhajirin Tatengesan",
+export const RUMAH_IBADAH_LIST: NamedImageItem[] = [
+  { name: "GMIM Imanuel Tatengesan Makalu", image: "/gmim.jpeg" },
+  { name: "GPdI Shekina Tatengesan", image: "/gpdi.jpeg" },
+  { name: "Gereja Penyebaran Injil Jemaat Kapernaum Tatengesan", image: "/kapernaum.jpeg" },
+  { name: "Masjid Al-Muhajirin Tatengesan", image: "/masjid.jpeg" },
 ];
 
 

@@ -1,26 +1,20 @@
-// src/app/home/components/PendidikanSection.tsx
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { PENDIDIKAN_LIST } from "../data/home";
 import ImagePreviewModal from "./ImagePreviewModal";
 
 export default function PendidikanSection() {
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
-  const activeTitle = PENDIDIKAN_LIST[activeIndex] ?? "Pendidikan";
-  const activeImage = useMemo(() => {
-    // ✅ ganti pola path ini sesuai folder gambar kamu
-    // contoh: public/pendidikan/0.png, 1.png, dst
-    return `/pendidikan/${activeIndex}.png`;
-  }, [activeIndex]);
+  const [active, setActive] = useState<{ title: string; src: string } | null>(
+    null
+  );
 
   return (
     <section className="mx-auto max-w-7xl space-y-8 px-4 md:px-1">
       <div className="grid items-center gap-8 md:grid-cols-2">
-        {/* KIRI: Gambar ilustrasi (hidden di mobile) */}
+        {/* KIRI */}
         <div className="hidden md:flex justify-center md:justify-start">
           <Image
             src="/pendidikanfoto.png"
@@ -31,7 +25,7 @@ export default function PendidikanSection() {
           />
         </div>
 
-        {/* KANAN: Judul + list sekolah */}
+        {/* KANAN */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold text-[#e53935]">
             Pendidikan
@@ -40,37 +34,31 @@ export default function PendidikanSection() {
             Sekolah-sekolah yang ada di Desa Tatengesan.
           </p>
 
-          {/* List sekolah (klik untuk lihat gambar) */}
           <div className="mt-6 space-y-3">
-            {PENDIDIKAN_LIST.map((nama, index) => (
+            {PENDIDIKAN_LIST.map((item, index) => (
               <button
-                key={`${nama}-${index}`}
+                key={`${item.name}-${index}`}
                 type="button"
                 onClick={() => {
-                  setActiveIndex(index);
+                  setActive({ title: item.name, src: item.image });
                   setOpen(true);
                 }}
-                className="
-                  w-full text-left
-                  rounded-xl bg-linear-to-r from-[#263238] to-[#455a64]
-                  px-6 py-4 text-base font-semibold text-white
-                  transition
+                className="w-full text-left rounded-xl bg-linear-to-r from-[#263238] to-[#455a64]
+                  px-6 py-4 text-base font-semibold text-white transition
                   hover:-translate-y-0.5 hover:brightness-110
-                  focus:outline-none focus:ring-2 focus:ring-[#e53935]/40
-                "
+                  focus:outline-none focus:ring-2 focus:ring-[#e53935]/40"
               >
-                {nama}
+                {item.name}
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Modal (reusable) */}
       <ImagePreviewModal
         open={open}
-        title={activeTitle}
-        imageSrc={activeImage}
+        title={active?.title ?? ""}
+        imageSrc={active?.src ?? "/pendidikanfoto.png"}
         onClose={() => setOpen(false)}
       />
     </section>

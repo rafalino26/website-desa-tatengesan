@@ -8,6 +8,8 @@ import PendudukPreview from "@/app/home/components/PendudukPreview";
 import PendidikanSection from "@/app/home/components/PendidikanSection";
 import RumahIbadahSection from "@/app/home/components/RumahIbadahSection";
 import GaleriPreview from "@/app/home/components/GaleriPreview";
+import LayananKesehatanSection from "@/app/home/components/LayananKesehatanSection";
+
 
 export default function HomePage() {
   return (
@@ -24,6 +26,7 @@ export default function HomePage() {
       <PendudukPreview />
       <PendidikanSection />
       <RumahIbadahSection />
+      <LayananKesehatanSection />
       <GaleriPreview />
     </div>
   );

@@ -227,7 +227,7 @@ export default function PendudukProfilSection() {
           />
           <InfoCard
             title="Distribusi Agama"
-            desc="Agama di Desa Tatengesan terdiri dari Kristen dan Muslim, namun mayoritas penduduk beragama Muslim."
+            desc="Agama di Desa Tatengesan terdiri dari Kristen dan Muslim, namun mayoritas penduduk beragama Kristen."
           />
         </div>
       </div>

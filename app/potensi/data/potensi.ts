@@ -29,12 +29,6 @@ export const PERTANIAN_ITEMS: PotensiItemWithImage[] = [
       "Kelapa tumbuh subur di wilayah desa dan dimanfaatkan untuk berbagai kebutuhan rumah tangga dan ekonomi.",
     gambar: "/kelapa.jpeg",
   },
-  {
-    nama: "Jagung",
-    deskripsi:
-      "Jagung dibudidayakan sebagai bahan pangan alternatif dan sumber penghasilan tambahan bagi petani desa.",
-    gambar: "/jagung.jpeg",
-  },
 ];
 
 // ======================
